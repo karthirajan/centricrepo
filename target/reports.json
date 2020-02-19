@@ -1,0 +1,290 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 10922587100,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.before()"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "User creates New season for a product",
+        "description": "",
+        "id": "create-new-season-in-qakripya.com;user-creates-new-season-for-a-product",
+        "after": [
+          {
+            "result": {
+              "duration": 48100,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.after()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 324522900,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "User launches centric application",
+            "match": {
+              "location": "LoginPageSteps.user_launches_centric_application()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 30932807200,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User selects language",
+            "match": {
+              "location": "HomePageSteps.user_selects_language()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1380296000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "Go to homepage",
+            "match": {
+              "location": "HomePageSteps.go_to_homepage()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1368797300,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "verify user screen",
+            "match": {
+              "location": "LoginPageSteps.verify_user_screen()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 530636600,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "Click style tab and get the listed season name in the style tab",
+            "match": {
+              "location": "HomePageSteps.click_style_tab_and_get_the_listed_season_name_in_the_style_tab()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4317307500,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "User create New season with mandatory deatails for season creation",
+            "match": {
+              "location": "StylePageSteps.user_create_New_season_with_mandatory_deatails_for_season_creation()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 3554892300,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "Click New Brand",
+            "match": {
+              "location": "StylePageSteps.click_New_Brand()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 680647500,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "Create Brand by providing valid and mandatory data",
+            "match": {
+              "location": "StylePageSteps.create_Brand_by_providing_valid_and_mandatory_data()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2224568500,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "Save the New Brand which was created",
+            "match": {
+              "location": "StylePageSteps.save_the_New_Brand_which_was_created()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 5397949600,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "Click New department by providing valid data",
+            "match": {
+              "location": "StylePageSteps.click_New_department_by_providing_valid_data()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 2215007900,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "Save the New department which was created",
+            "match": {
+              "location": "StylePageSteps.save_the_New_department_which_was_created()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 4436071800,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "Click New collection",
+            "match": {
+              "location": "StylePageSteps.click_New_collection()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 861679100,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "Create collection by providing valida and mandatory details",
+            "match": {
+              "location": "StylePageSteps.create_collection_by_providing_valida_and_mandatory_details()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2218002000,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "Save the collection which was created",
+            "match": {
+              "location": "StylePageSteps.save_the_collection_which_was_created()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 5619045700,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "Click New style",
+            "match": {
+              "location": "StylePageSteps.click_New_style()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 3653778700,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "Create Style followed by its style Type",
+            "match": {
+              "location": "StylePageSteps.create_Style_followed_by_its_style_Type()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 204447900,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "Go to homepage",
+            "match": {
+              "location": "HomePageSteps.go_to_homepage()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 7286653600,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "select the image from the avilable resource",
+            "match": {
+              "location": "StylePageSteps.select_the_image_from_the_avilable_resource()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 152800,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "Verify the created season, Brand, Department, Collection and Style which was created.",
+            "match": {
+              "location": "LoginPageSteps.verify_the_created_season_Brand_Department_Collection_and_Style_which_was_created()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 45700,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "Logout from the Application",
+            "match": {
+              "location": "LoginPageSteps.logout_from_the_Application()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Scenario1"
+          }
+        ]
+      }
+    ],
+    "name": "Create New season in qakripya.com",
+    "description": "",
+    "id": "create-new-season-in-qakripya.com",
+    "keyword": "Feature",
+    "uri": "src/main/resources/Features/NewSeason.feature",
+    "tags": []
+  }
+]
