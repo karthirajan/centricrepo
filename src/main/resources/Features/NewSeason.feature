@@ -1,25 +1,31 @@
-Feature:  Create New season in qakripya.com
+Feature: Create New season in qakripya.com
 
-@Scenario1
-  Scenario: User creates New season for a product
-  Given User launches centric application
-  And User selects language
-  Then Go to homepage
-  And verify user screen
-  And Click style tab and get the listed season name in the style tab
-  When User create New season with mandatory deatails for season creation
-  Then Click New Brand
-  And Create Brand by providing valid and mandatory data
-  Then Save the New Brand which was created
-  Then Click New department by providing valid data 
-  Then Save the New department which was created
-  Then Click New collection
-  And Create collection by providing valida and mandatory details
-  Then Save the collection which was created
-  Then Click New style
-  And Create Style followed by its style Type
-  Then Go to homepage
-  Then select the image from the avilable resource
-  Then Verify the created season, Brand, Department, Collection and Style which was created.
-  Then Logout from the Application
-  
+  @Scenario1
+  Scenario Outline: User creates New season for a product
+    Given User launches centric application
+    And User selects language "<language>"
+    Then Go to homepage
+    And verify user screen
+    And Click style tab and get the listed season name in the style tab
+    When User create New season with mandatory deatails for season creation "<style>","<scode>","<sdescription>"
+    Then Click New Brand
+    And Create Brand by providing valid and mandatory data"<brand>","<bcode>","<bdescription>"
+    Then Save the New Brand which was created
+    Then Click New department by providing valid data "<dept>","<dcode>","<ddescription>"
+    Then Save the New department which was created
+    Then Click New collection
+    And Create collection by providing valida and mandatory details "<collection>","<ccode>","<cdesription>"
+    Then Save the collection which was created
+    Then Click New style
+    And Create Style followed by its style Type "<styletype>"
+    Then Go to homepage
+    Then select the image from the avilable resource
+    Then Verify the created season, Brand, Department, Collection and Style which was created.
+    Then Logout from the Application
+
+    Examples: 
+      | language           | style   | scode | sdescription | brand | bcode | bdescription | dept | dcode | ddescription | collection | ccode  | cdesription | styletype |
+      | Italian (Italiano) | autumn1 |   100 | new model    | brand |   101 | otto         | dept | ot01  | shirts       | collection | Cot001 | cotton      | Apparel   |
+      | English - USA      | spring1 |   101 | new model    | brand |   101 | otto         | dept | ot01  | T-shirts     | collection | Cot001 | cotton      | Apparel   |
+      | English - UK       | winter1 |   102 | new model    | brand |   101 | otto         | dept | ot01  | pants        | collection | Cot001 | cotton      | Apparel   |
+      | Bengali (বাংলা)     | summer1 |   103 | new model    | brand |   101 | otto         | dept | ot01  | shorts       | collection | Cot001 | cotton      | Apparel   |

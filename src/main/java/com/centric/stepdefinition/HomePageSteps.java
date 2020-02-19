@@ -16,20 +16,20 @@ public class HomePageSteps extends Commonactions {
 	Commonactions ca=new Commonactions();
 	HomePage hp=new HomePage();
 	
-	@Given("User selects language")
-	public void user_selects_language() throws Throwable {
+	@Given("User selects language {string}")
+	public void user_selects_language(String a) throws Throwable {
 		Commonactions.jsWaitForPageLoad(); 
-		driver.findElement(By.xpath("//a[@class='csiActionIcon  iconPageUser csi-toolbar-btn-icon-PageUser']")).isDisplayed();
+		driver.findElement(By.xpath("//span[contains(@data-csi-automation,'PageUser')]")).isDisplayed();
 				Thread.sleep(2000);
-	    driver.findElement(By.xpath("//a[@class='csiActionIcon  iconPageUser csi-toolbar-btn-icon-PageUser']")).click();
-	   SelectLanguage("English - USA"); 
+	    driver.findElement(By.xpath("//span[contains(@data-csi-automation,'PageUser')]")).click();
+	   SelectLanguage(a); 
 	 //  ca.screenCapture("C:\\Users\\yuvar\\eclipse-workspace\\Centric\\target\\screenshots");
 	}
 	
 
     public static void SelectLanguage(String Language) throws InterruptedException {
               for (int i = 0; i < 250; i++) {
-           WebElement dr = driver.findElement(By.xpath("//td[@class='attrString attrStringSelection iconEditable']"));
+           WebElement dr = driver.findElement(By.xpath("(//td[@class='csiHeadingColumn']//td[contains(@data-csi-heading,'')])[9]"));
                       dr.click();
                 Actions a = new Actions(driver);
               for (int j = 0; j <= i; j++) {

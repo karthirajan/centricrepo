@@ -15,13 +15,13 @@ public class StylePageSteps {
 	StylePage sp=new StylePage();
 	PopupPage pup=new PopupPage();
 
-	@When("User create New season with mandatory deatails for season creation")
-	public void user_create_New_season_with_mandatory_deatails_for_season_creation() throws InterruptedException {
+	@When("User create New season with mandatory deatails for season creation {string},{string},{string}")
+	public void user_create_New_season_with_mandatory_deatails_for_season_creation(String a,String b, String c) throws InterruptedException {
 
 		ca.click(sp.getNew_season_Btn());
-		ca.insertText(pup.getSeason_Value(), "autumn1");
-		ca.insertText(pup.getCode_Value(), "100");
-		ca.insertText(pup.getDescription_Value(), "new model");
+		ca.insertText(pup.getSeason_Value(), a);
+		ca.insertText(pup.getCode_Value(), b);
+		ca.insertText(pup.getDescription_Value(), c);
 		ca.click(pup.getSave_and_go_Btn());
 		Thread.sleep(2000);
 
@@ -35,12 +35,12 @@ public class StylePageSteps {
 		Thread.sleep(1000);
 	}
 
-	@And("Create Brand by providing valid and mandatory data")
-	public void create_Brand_by_providing_valid_and_mandatory_data() {
+	@And("Create Brand by providing valid and mandatory data {string},{string},{string}")
+	public void create_Brand_by_providing_valid_and_mandatory_data(String a,String b, String c) {
 
-		ca.insertText(pup.getBrand_Value(), "brand");
-		ca.insertText(pup.getBrand_code_Value(), "102");
-		ca.insertText(pup.getBrand_description_Value(), "otto");
+		ca.insertText(pup.getBrand_Value(), a);
+		ca.insertText(pup.getBrand_code_Value(), b);
+		ca.insertText(pup.getBrand_description_Value(), c);
 	}
 
 	@Then("Save the New Brand which was created")
@@ -49,14 +49,14 @@ public class StylePageSteps {
 		Thread.sleep(2000);
 	}
 
-	@Then("Click New department by providing valid data")
-	public void click_New_department_by_providing_valid_data() throws Throwable {
+	@Then("Click New department by providing valid data  {string},{string},{string}")
+	public void click_New_department_by_providing_valid_data(String a,String b, String c) throws Throwable {
 		ca.jsScrollPageDown(sp.getNew_season_Btn());
 		ca.click(sp.getNew_season_Btn());
 		Thread.sleep(2000);
-		ca.insertText(pup.getBrand_Value(), "department");
-		ca.insertText(pup.getBrand_code_Value(), "OT01");
-		ca.insertText(pup.getBrand_description_Value(), "Shirts");
+		ca.insertText(pup.getBrand_Value(), a);
+		ca.insertText(pup.getBrand_code_Value(), b);
+		ca.insertText(pup.getBrand_description_Value(), c);
 	}
 
 	@Then("Save the New department which was created")
@@ -72,11 +72,11 @@ public class StylePageSteps {
 		Thread.sleep(2000);
 	}
 
-	@Then("Create collection by providing valida and mandatory details")
-	public void create_collection_by_providing_valida_and_mandatory_details() {
-		ca.insertText(pup.getBrand_Value(), "Collections");
-		ca.insertText(pup.getBrand_code_Value(), "Cot001");
-		ca.insertText(pup.getBrand_description_Value(), "Cotton");
+	@Then("Create collection by providing valida and mandatory details {string},{string},{string}")
+	public void create_collection_by_providing_valida_and_mandatory_details(String a,String b, String c) {
+		ca.insertText(pup.getBrand_Value(), a);
+		ca.insertText(pup.getBrand_code_Value(), b);
+		ca.insertText(pup.getBrand_description_Value(), c);
 
 	}
 
@@ -94,10 +94,10 @@ public class StylePageSteps {
 
 	}
 	
-	@Then("Create Style followed by its style Type")
-	public void create_Style_followed_by_its_style_Type() throws InterruptedException {
+	@Then("Create Style followed by its style Type {string}")
+	public void create_Style_followed_by_its_style_Type(String a) throws InterruptedException {
 		
-		ca.insertText(pup.getStyle_type_Value(), "Apparel");
+		ca.insertText(pup.getStyle_type_Value(), a);
 		//ca.insertText(pup.getTemplate_Value(), "apparel");
 		//ca.insertText(pup.getShape_Value(), "ssgd");
 		//ca.insertText(pup.getTheme_code_Value(),"sgfg");
