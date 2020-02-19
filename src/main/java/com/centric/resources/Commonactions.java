@@ -19,11 +19,6 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
-import org.joda.time.LocalDate;
-import org.joda.time.LocalDateTime;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
-import org.json.simple.JSONObject;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -73,20 +68,7 @@ public class Commonactions{
 
 	}
 	
-	public static String getCurrentDate() {
-		DateTimeFormatter fmt = DateTimeFormat.forPattern("yyyy-MM-dd");
-		LocalDate now = LocalDate.now();
-		String exec_Date = now.toString(fmt);
-		return exec_Date;
-	}
-	public static String getCurrentTime() {
-		LocalDateTime now = LocalDateTime.now();
-		int hour = now.getHourOfDay();
-		int minute = now.getMinuteOfHour();
-		int second = now.getSecondOfMinute();
-		String exec_StartTime = hour + ":" + minute + ":" + second;
-		return exec_StartTime;
-	}
+
 	
 	public static void accept_Alert() {
 		try {
@@ -307,7 +289,7 @@ public class Commonactions{
 	 * To create a connectivity to Database and update the scenario execution
 	 * status
 	 */
-	public static void createDBConnection(String scName, String scStatus) {
+/*	public static void createDBConnection(String scName, String scStatus) {
 		try {
 			// convert current date from string to sql date data type
 			String currentDate = getCurrentDate();
@@ -332,7 +314,7 @@ public class Commonactions{
 			conn.close();
 		} catch (Exception err) {
 		}
-	}
+	}*/
 
 	/**
 	 * Method to get the available option from dropdown
@@ -691,13 +673,13 @@ public class Commonactions{
 
 	}
 
-	public static String getCurrentDateMMMDDYYYY() {
+/*	public static String getCurrentDateMMMDDYYYY() {
 		DateTimeFormatter fmt = DateTimeFormat.forPattern("MMM. dd, YYYY");
 		LocalDate now = LocalDate.now();
 		String exec_Date = now.toString(fmt);
 		return exec_Date;
 	}
-
+*/
 	/**
 	 * Modify drop down value if something is already selected
 	 * 
