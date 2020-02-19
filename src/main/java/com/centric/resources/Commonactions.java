@@ -92,9 +92,9 @@ public class Commonactions{
 		try {
 			Alert alert = driver.switchTo().alert();
 			alert.accept();
-			Reporter.addStepLogPass("alert accepted successfully");
+			//Reporter.addStepLogPass("alert accepted successfully");
 		} catch (Exception e) {
-			Reporter.addStepLogInfo("Alert is not accepted" + e.toString());
+			//Reporter.addStepLogInfo("Alert is not accepted" + e.toString());
 		}
 	}
 	
@@ -102,9 +102,9 @@ public class Commonactions{
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
 			FileUtils.copyFile(scrFile, new File(imgLocation));
-			Reporter.addStepLogPass("Captured screen successfully");
+			//Reporter.addStepLogPass("Captured screen successfully");
 		} catch (IOException e) {
-			Reporter.addStepLogInfo("Screen is not captured" + e.toString());
+			//Reporter.addStepLogInfo("Screen is not captured" + e.toString());
 		}
 		return imgLocation;
 	}
@@ -146,9 +146,9 @@ public class Commonactions{
 	public static void frames(WebElement frameElement) {
 		try {
 			driver.switchTo().frame(frameElement);
-			Reporter.addStepLogPass("successfully switched to frame");
+			//Reporter.addStepLogPass("successfully switched to frame");
 		} catch (Exception e) {
-			Reporter.addStepLogInfo("failed while switching to frame");
+			//Reporter.addStepLogInfo("failed while switching to frame");
 		}
 	}
 
@@ -162,19 +162,19 @@ public class Commonactions{
 	public static void navigateToUrl(String url) {
 		try {
 			driver.navigate().to(url);
-			Reporter.addStepLogPass("Application launched successfully to" + url);
+			//Reporter.addStepLogPass("Application launched successfully to" + url);
 
 		} catch (Exception e) {
-			Reporter.addStepLogInfo("Failed to load the url" + url + e.getMessage());
+			//Reporter.addStepLogInfo("Failed to load the url" + url + e.getMessage());
 		}
 	}
 
 	public static void closeBrowser() {
 		try {
 			driver.close();
-			Reporter.addStepLogPass("Browser closed successfully");
+			//Reporter.addStepLogPass("Browser closed successfully");
 		} catch (Exception e) {
-			Reporter.addStepLogInfo("Browser is not closed");
+			//Reporter.addStepLogInfo("Browser is not closed");
 		}
 	}
 
@@ -185,9 +185,9 @@ public class Commonactions{
 			if (element.isDisplayed()) {
 				elementPresent = true;
 			}
-			Reporter.addStepLogPass(element.toString() + "is Displayed successfully");
+			//Reporter.addStepLogPass(element.toString() + "is Displayed successfully");
 		} catch (Exception e) {
-			Reporter.addStepLogInfo("Verify Element Present failed" + e.toString());
+			//Reporter.addStepLogInfo("Verify Element Present failed" + e.toString());
 		}
 		return elementPresent;
 	}
@@ -202,9 +202,9 @@ public class Commonactions{
 			if (element.isDisplayed()) {
 				elementNotPresent = false;
 			}
-			Reporter.addStepLogPass("Element is Displayed successfully");
+			//Reporter.addStepLogPass("Element is Displayed successfully");
 		} catch (Exception e) {
-			Reporter.addStepLogInfo("Verify Element Present failed" + e.getMessage());
+			//Reporter.addStepLogInfo("Verify Element Present failed" + e.getMessage());
 		}
 		return elementNotPresent;
 	}
@@ -215,9 +215,9 @@ public class Commonactions{
 			if (element.getText() != null) {
 				text = element.getText();
 			}
-			Reporter.addStepLogPass("text retrieved successfully from element" + element.toString());
+			//Reporter.addStepLogPass("text retrieved successfully from element" + element.toString());
 		} catch (Exception e) {
-			Reporter.addStepLogInfo("text is not retrieved from element" + element.toString() + e.getMessage());
+			//Reporter.addStepLogInfo("text is not retrieved from element" + element.toString() + e.getMessage());
 		}
 		return text;
 	}
@@ -235,9 +235,9 @@ public class Commonactions{
 			if (element.getAttribute("value") != null) {
 				value = element.getAttribute("value");
 			}
-			Reporter.addStepLogPass("text retrieved successfully from element" + element.toString());
+			//Reporter.addStepLogPass("text retrieved successfully from element" + element.toString());
 		} catch (Exception e) {
-			Reporter.addStepLogInfo("text is not retrieved from element" + element.toString() + e.getMessage());
+			//Reporter.addStepLogInfo("text is not retrieved from element" + element.toString() + e.getMessage());
 		}
 		return value;
 	}
@@ -249,9 +249,9 @@ public class Commonactions{
 		try {
 			Select obj_select = new Select(element);
 			obj_select.selectByValue(value);
-			Reporter.addStepLogPass(value + "selected from dropdown " + element.toString());
+			//Reporter.addStepLogPass(value + "selected from dropdown " + element.toString());
 		} catch (Exception e) {
-			Reporter.addStepLogInfo("failed to select" + value + "from " + element.toString());
+			//Reporter.addStepLogInfo("failed to select" + value + "from " + element.toString());
 		}
 	}
 
@@ -262,9 +262,9 @@ public class Commonactions{
 		try {
 			Select obj_select = new Select(element);
 			obj_select.selectByVisibleText(text);
-			Reporter.addStepLogPass(text + "selected from dropdown " + element.toString());
+			//Reporter.addStepLogPass(text + "selected from dropdown " + element.toString());
 		} catch (Exception e) {
-			Reporter.addStepLogInfo("failed to select" + text + "from " + element.toString());
+			//Reporter.addStepLogInfo("failed to select" + text + "from " + element.toString());
 		}
 	}
 
@@ -275,9 +275,9 @@ public class Commonactions{
 		try {
 			Select obj_select = new Select(element);
 			obj_select.selectByIndex(index);
-			Reporter.addStepLogPass(index + "index selected from dropdown " + element.toString());
+			//Reporter.addStepLogPass(index + "index selected from dropdown " + element.toString());
 		} catch (Exception e) {
-			Reporter.addStepLogInfo("failed to select" + index + "index" + "from " + element.toString());
+			//Reporter.addStepLogInfo("failed to select" + index + "index" + "from " + element.toString());
 		}
 	}
 
@@ -348,10 +348,10 @@ public class Commonactions{
 			for (int i = 0; i < optionElements.size(); i++) {
 				AvailableOptions.add(optionElements.get(i).getText());
 			}
-			Reporter.addStepLogPass("get available options from dropdown is success" + element.toString());
+			//Reporter.addStepLogPass("get available options from dropdown is success" + element.toString());
 		} catch (Exception e) {
-			Reporter.addStepLogInfo(
-					"get available options from dropdown is failed" + e.getMessage() + element.toString());
+			//Reporter.addStepLogInfo(
+				//	"get available options from dropdown is failed" + e.getMessage() + element.toString());
 		}
 		return AvailableOptions;
 	}
@@ -366,10 +366,10 @@ public class Commonactions{
 			String code = "var fireOnThis = arguments[0];" + "var evObj = document.createEvent('MouseEvents');"
 					+ "evObj.initEvent( 'mouseover', true, true );" + "fireOnThis.dispatchEvent(evObj);";
 			((JavascriptExecutor) driver).executeScript(code, element);
-			Reporter.addStepLogPass("Mouseover to the element" + element.toString() + "is success");
+			//Reporter.addStepLogPass("Mouseover to the element" + element.toString() + "is success");
 
 		} catch (Exception e) {
-			Reporter.addStepLogPass("Mouseover to the element" + element.toString() + "is failed");
+			//Reporter.addStepLogPass("Mouseover to the element" + element.toString() + "is failed");
 		}
 	}
 
@@ -377,9 +377,9 @@ public class Commonactions{
 		try {
 			Actions action = new Actions(driver);
 			action.moveToElement(element).build().perform();
-			Reporter.addStepLogPass("Mouseover to the element" + element.toString() + "is success");
+			//Reporter.addStepLogPass("Mouseover to the element" + element.toString() + "is success");
 		} catch (Exception e) {
-			Reporter.addStepLogPass("Mouseover to the element" + element.toString() + "is failed");
+			//Reporter.addStepLogPass("Mouseover to the element" + element.toString() + "is failed");
 		}
 	}
 
@@ -467,9 +467,9 @@ public class Commonactions{
 		try {
 			JavascriptExecutor executor = (JavascriptExecutor) driver;
 			executor.executeScript("arguments[0].click();", element);
-			Reporter.addStepLogPass(element.toString() + "element is clicked successfully");
+			//Reporter.addStepLogPass(element.toString() + "element is clicked successfully");
 		} catch (Exception e) {
-			Reporter.addStepLogInfo(element.toString() + "element is not clicked" + e.getMessage());
+			//Reporter.addStepLogInfo(element.toString() + "element is not clicked" + e.getMessage());
 		}
 	}
 
@@ -486,9 +486,9 @@ public class Commonactions{
 
 			js.executeScript("window.scrollBy(0, " + -yScrollPosition + ")", "");
 
-			Reporter.addStepLogPass("scroll page up" + "page is scrolled up successfully");
+			//Reporter.addStepLogPass("scroll page up" + "page is scrolled up successfully");
 		} catch (Exception e) {
-			Reporter.addStepLogInfo("page is not scrolled up ");
+			//Reporter.addStepLogInfo("page is not scrolled up ");
 		}
 	}
 
@@ -503,9 +503,9 @@ public class Commonactions{
 		int size = 0;
 		try {
 			size = element.size();
-			Reporter.addStepLogPass("size of list retrieved successfuly");
+			//Reporter.addStepLogPass("size of list retrieved successfuly");
 		} catch (Exception e) {
-			Reporter.addStepLogInfo("value is not retrieved from textbox" + e.toString());
+			//Reporter.addStepLogInfo("value is not retrieved from textbox" + e.toString());
 		}
 		return size;
 	}
@@ -519,9 +519,9 @@ public class Commonactions{
 	public static void quitBrowser() {
 		try {
 			driver.quit();
-			Reporter.addStepLogPass("Browser quited successfully");
+			//Reporter.addStepLogPass("Browser quited successfully");
 		} catch (Exception e) {
-			Reporter.addStepLogInfo("Browser is not quited");
+			//Reporter.addStepLogInfo("Browser is not quited");
 		}
 	}
 
@@ -789,7 +789,7 @@ public class Commonactions{
 
 			js.executeScript("arguments[0].scrollIntoView(true);",element);
               Thread.sleep(2000);
-			//Reporter.addStepLogPass("scroll page down" + "page is scrolled down successfully");
+			////Reporter.addStepLogPass("scroll page down" + "page is scrolled down successfully");
 
 	}
 
