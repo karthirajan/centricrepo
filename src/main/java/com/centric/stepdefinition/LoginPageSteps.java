@@ -1,21 +1,39 @@
 package com.centric.stepdefinition;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.configuration.ChartLocation;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.centric.objectrepository.HomePage;
 import com.centric.objectrepository.LoginPage;
 import com.centric.objectrepository.StylePage;
 import com.centric.resources.Commonactions;
 
+import cucumber.api.java.After;
+import cucumber.api.java.AfterStep;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class LoginPageSteps extends Commonactions {
 
+	private static final String ITestResult = null;
 	Commonactions ca = new Commonactions();
 	public static LoginPage lp;
 	public static HomePage hp;
@@ -26,8 +44,8 @@ public class LoginPageSteps extends Commonactions {
 	ExtentReports extent;
 	ExtentTest test;
 
-	@Parameters({ "OS", "browser" })
-	@Before
+	@Parameters({"OS", "browser"})
+	@BeforeClass
 	public void startReport(String OS, String browser) {
 		// initialize the HtmlReporter
 		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")
@@ -83,49 +101,17 @@ public class LoginPageSteps extends Commonactions {
 
 	@Then("Logout from the Application")
 	public void logout_from_the_Application() throws InterruptedException {
-		Commonactions.jsWaitForPageLoad();
-		driver.findElement(
-				By.xpath("//span[contains(@data-csi-automation,'PageUser')]"))
-				.isDisplayed();
-		Thread.sleep(2000);
-		driver.findElement(
-				By.xpath("//span[contains(@data-csi-automation,'PageUser')]"))
-				.click();
-		for (int i = 0; i < 250; i++) {
-			WebElement dr = driver
-					.findElement(By
-							.xpath("(//td[@class='csiHeadingColumn']//td[contains(@data-csi-heading,'')])[9]"));
-			dr.click();
-			Actions a = new Actions(driver);
-			for (int j = 0; j <= i; j++) {
-				a.sendKeys(Keys.DOWN).build().perform();
-			}
-
-			a.sendKeys(Keys.TAB).build().perform();
-			if (dr.getText().equalsIgnoreCase("English - UK")) {
-				break;
-			}
-			Thread.sleep(500);
-		}
-		System.out.println("English - UK" + "Language selected");
-		Thread.sleep(500);
-		driver.findElement(By.xpath("//span[contains(text(),'Defaults')]"))
-				.click();
-		Thread.sleep(500);
-		driver.findElement(By.xpath("//span[contains(text(),'User Profile')]"))
-				.click();
-		Thread.sleep(500);
-		driver.navigate().refresh();
+		
 		// driver.close();
 	}
 
-	@AfterStep
-	public void getResult(ITestResult result) {
-		if (result.getStatus() == ITestResult.FAILURE) {
+	@AfterClass
+	public void getResult(org.testng.ITestResult result) {
+		if (result.getStatus() == org.testng.ITestResult.FAILURE) {
 			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName()
 					+ " FAILED ", ExtentColor.RED));
 			test.fail(result.getThrowable());
-		} else if (result.getStatus() == ITestResult.SUCCESS) {
+		} else if (result.getStatus() == org.testng.ITestResult.SUCCESS) {
 			test.log(Status.PASS, MarkupHelper.createLabel(result.getName()
 					+ " PASSED ", ExtentColor.GREEN));
 		} else {
@@ -135,7 +121,7 @@ public class LoginPageSteps extends Commonactions {
 		}
 	}
 
-	@After
+	@AfterTest
 	public void tearDown() {
 		// to write or update test information to reporter
 		extent.flush();

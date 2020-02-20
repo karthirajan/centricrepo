@@ -47,7 +47,7 @@ public class Commonactions{
 	private static String homeWindow = null;
 	
 	public WebDriver launch(String url) {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\yuvar\\eclipse-workspace\\Centric\\src\\test\\resources\\lib\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\abdul\\Desktop\\centric\\centricrepo\\src\\test\\resources\\driver\\chromedriver.exe");
         driver=new ChromeDriver();
         driver.get(url);
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -190,6 +190,7 @@ public class Commonactions{
 		}
 		return elementNotPresent;
 	}
+	
 	public static String getText(WebElement element) {
 		String text = null;
 		try {
