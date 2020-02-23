@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+=======
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+>>>>>>> 30cd92f79b2a7d57fbd74b383a031313bd5909c6
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>Centric</groupId>
@@ -141,5 +145,14 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 		</dependency>
+<<<<<<< HEAD
+=======
+
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>3.1.5</version>
+		</dependency>
+>>>>>>> 30cd92f79b2a7d57fbd74b383a031313bd5909c6
 	</dependencies>
 </project>
