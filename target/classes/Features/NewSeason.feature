@@ -9,7 +9,7 @@ Feature: Create New season in qakripya.com
     And Click style tab and get the listed season name in the style tab
     When User create New season with mandatory deatails for season creation "<style>","<scode>","<sdescription>"
     Then Click New Brand
-    And Create Brand by providing valid and mandatory data"<brand>","<bcode>","<bdescription>"
+    And Create Brand by providing valid and mandatory data "<brand>","<bcode>","<bdescription>"
     Then Save the New Brand which was created
     Then Click New department by providing valid data "<dept>","<dcode>","<ddescription>"
     Then Save the New department which was created

@@ -49,7 +49,7 @@ public class StylePageSteps {
 		Thread.sleep(2000);
 	}
 
-	@Then("Click New department by providing valid data  {string},{string},{string}")
+	@Then("Click New department by providing valid data {string},{string},{string}")
 	public void click_New_department_by_providing_valid_data(String a,String b, String c) throws Throwable {
 		ca.jsScrollPageDown(sp.getNew_season_Btn());
 		ca.click(sp.getNew_season_Btn());
