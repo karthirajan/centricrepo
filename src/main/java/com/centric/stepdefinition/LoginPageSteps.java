@@ -1,6 +1,8 @@
 package com.centric.stepdefinition;
 
 
+import java.io.File;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -10,6 +12,8 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+
+import testcase.BeforeSuite;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -39,39 +43,26 @@ public class LoginPageSteps extends Commonactions {
 	public static HomePage hp;
 	StylePage sp = new StylePage();
 
-	ExtentHtmlReporter htmlReporter;
-
 	ExtentReports extent;
-	ExtentTest test;
+	ExtentTest logger;
 
-	@Parameters({"OS", "browser"})
-	@BeforeClass
-	public void startReport(String OS, String browser) {
-		// initialize the HtmlReporter
-		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")
-				+ "/test-output/testReport.html");
-
-		// initialize ExtentReports and attach the HtmlReporter
-		extent = new ExtentReports();
-		extent.attachReporter(htmlReporter);
-
-		// To add system or environment info by using the setSystemInfo method.
-		extent.setSystemInfo("OS", OS);
-		extent.setSystemInfo("Browser", browser);
-
-		// configuration items to change the look and feel
-		// add content, manage tests etc
-		htmlReporter.config().setChartVisibilityOnOpen(true);
-		htmlReporter.config().setDocumentTitle("Extent Report Demo");
-		htmlReporter.config().setReportName("Test Report");
-		htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
-		htmlReporter.config().setTheme(Theme.STANDARD);
-		htmlReporter.config().setTimeStampFormat(
-				"EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
+	@Before
+	public void reportpreparation() {
+		//Define extent report files and environment details
+		extent = new ExtentReports(System.getProperty("user.dir")
+				+ "/Extent_Report/ExtentReport.html", true);
+		// extent.addSystemInfo("Environment","Environment Name")
+		extent.addSystemInfo("Host Name", "Demo")
+				.addSystemInfo("Environment",
+						"Testing")
+				.addSystemInfo("User Name", "Karthick");
+		extent.loadConfig(new File(System.getProperty("user.dir")
+				+ "\\extent-config.xml"));
 	}
 
 	@Given("User launches centric application")
 	public void user_launches_centric_application() throws InterruptedException {
+		logger = extent.startTest("Login Application","User launches centric application");
 		lp = new LoginPage();
 		ca.insertText(lp.getUsername(), "automation");
 		System.out.println("username entered successfully");
@@ -103,6 +94,10 @@ public class LoginPageSteps extends Commonactions {
 	public void logout_from_the_Application() throws InterruptedException {
 		
 		// driver.close();
+		//update test information to your report
+				extent.flush();
+				//Clear all extent report resources
+				extent.close();
 	}
 
 	@AfterClass
